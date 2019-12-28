@@ -14,10 +14,10 @@
 				$http.post('/start', {'url': userInput}).
 					success(function(results) {
 						$log.log(results);
-						getWordCount(results);
-						$scope.wordcounts = null;
 						$scope.loading = true;
 						$scope.submitButtonText = 'Loading...';
+						$scope.wordcounts = null;
+						getWordCount(results);
 					}).
 					error(function(error) {
 						$log.log(error);
@@ -34,12 +34,12 @@
 								$log.log(data, status);
 							} else if (status === 200) {
 								$log.log(data);
+								$scope.loading = false;
+								$scope.submitButtonText = 'Submit';
 								$scope.wordcounts = data;
 								$timeout.cancel(timeout);
 								return false;
 							}
-							$scope.loading = false;
-							$scope.submitButtonText = 'Submit';
 							timeout = $timeout(poller, 2000);
 						});
 				};
