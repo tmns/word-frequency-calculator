@@ -33,7 +33,7 @@ def count_and_save_words(url):
         )
         return {'error': errors}
 
-    raw = BeautifulSoup(r.text).get_text()
+    raw = BeautifulSoup(r.text, features='html.parser').get_text()
     nltk.data.path.append('./nltk_data/')
     tokens = nltk.word_tokenize(raw)
     text = nltk.Text(tokens)
