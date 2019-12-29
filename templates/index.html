@@ -9,6 +9,7 @@
         max-width: 1000px;
       }
     </style>
+		<link rel="stylesheet" type="text/css" href="../static/main.css">
   </head>
   <body ng-controller="WordcountController">
 		<div class="container">
@@ -58,7 +59,10 @@
 										filename='spinner.gif') }}" ng-show="loading">
 			</div>
 		</div>
+		<br>
+		<word-count-chart data="wordcounts"></word-count-chart>
     <br><br>
+		<script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
